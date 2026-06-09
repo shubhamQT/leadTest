@@ -1,9 +1,8 @@
-import { test, expect } from '../support/fixtures';
-import testData from '../testdata/test-data.json';
+import { test } from '../support/fixtures';
 
-test('Show validation error when Last Name is blank', { tag: ["@functional","@regression","@lead","@P1","@create-lead-missing-lastname"] }, async ({ page, homePage, leadNewPage }) => {
+test('Show validation error when Last Name is blank', { tag: ["@functional","@regression","@lead","@P1","@create-lead-missing-lastname"] }, async ({ page, leadNewPage }) => {
   await test.step('Open — Navigate to Salesforce Leads tab', async () => {
-    await page.goto('/leads');
+    await page.goto('/lightning/o/Lead/list');
   });
   await test.step("Click — Click on 'New' button", async () => {
     await leadNewPage.clickNew();
@@ -19,9 +18,9 @@ test('Show validation error when Last Name is blank', { tag: ["@functional","@re
   });
 });
 
-test('Show validation error when Company is blank', { tag: ["@functional","@regression","@lead","@P1","@create-lead-missing-company"] }, async ({ page, homePage, leadNewPage }) => {
+test('Show validation error when Company is blank', { tag: ["@functional","@regression","@lead","@P1","@create-lead-missing-company"] }, async ({ page, leadNewPage }) => {
   await test.step('Open — Navigate to Salesforce Leads tab', async () => {
-    await page.goto('/leads');
+    await page.goto('/lightning/o/Lead/list');
   });
   await test.step("Click — Click on 'New' button", async () => {
     await leadNewPage.clickNew();
@@ -37,9 +36,9 @@ test('Show validation error when Company is blank', { tag: ["@functional","@regr
   });
 });
 
-test("Verify Lead Status defaults to 'Open - Not Contacted' after creation", { tag: ["@functional","@regression","@lead","@P1","@create-lead-default-status"] }, async ({ page, homePage, leadNewPage }) => {
+test("Verify Lead Status defaults to 'Open - Not Contacted' after creation", { tag: ["@functional","@regression","@lead","@P1","@create-lead-default-status"] }, async ({ page, leadNewPage }) => {
   await test.step('Open — Navigate to Salesforce Leads tab', async () => {
-    await page.goto('/leads');
+    await page.goto('/lightning/o/Lead/list');
   });
   await test.step("Click — Click on 'New' button", async () => {
     await leadNewPage.clickNew();
@@ -58,9 +57,9 @@ test("Verify Lead Status defaults to 'Open - Not Contacted' after creation", { t
   });
 });
 
-test('E2E: Create Lead from navigation to record verification', { tag: ["@e2e","@regression","@lead","@P0","@e2e-create-lead-full-journey"] }, async ({ page, homePage, leadNewPage }) => {
+test('E2E: Create Lead from navigation to record verification', { tag: ["@e2e","@regression","@lead","@P0","@e2e-create-lead-full-journey"] }, async ({ page, leadNewPage }) => {
   await test.step('Open — Navigate to Salesforce Leads tab', async () => {
-    await page.goto('/leads');
+    await page.goto('/lightning/o/Lead/list');
   });
   await test.step("Click — Click on 'New' button", async () => {
     await leadNewPage.clickNew();
@@ -95,9 +94,9 @@ test('E2E: Create Lead from navigation to record verification', { tag: ["@e2e","
   });
 });
 
-test('E2E: Create Lead with only mandatory fields', { tag: ["@e2e","@regression","@lead","@P1","@e2e-create-lead-minimal-fields"] }, async ({ page, homePage, leadNewPage }) => {
+test('E2E: Create Lead with only mandatory fields', { tag: ["@e2e","@regression","@lead","@P1","@e2e-create-lead-minimal-fields"] }, async ({ page, leadNewPage }) => {
   await test.step('Open — Navigate to Salesforce Leads tab', async () => {
-    await page.goto('/leads');
+    await page.goto('/lightning/o/Lead/list');
   });
   await test.step("Click — Click on 'New' button", async () => {
     await leadNewPage.clickNew();
@@ -119,9 +118,9 @@ test('E2E: Create Lead with only mandatory fields', { tag: ["@e2e","@regression"
   });
 });
 
-test('E2E: Attempt to create Lead with missing mandatory fields and verify errors', { tag: ["@e2e","@regression","@lead","@P1","@e2e-lead-validation-errors"] }, async ({ page, homePage, leadNewPage }) => {
+test('E2E: Attempt to create Lead with missing mandatory fields and verify errors', { tag: ["@e2e","@regression","@lead","@P1","@e2e-lead-validation-errors"] }, async ({ page, leadNewPage }) => {
   await test.step('Open — Navigate to Salesforce Leads tab', async () => {
-    await page.goto('/leads');
+    await page.goto('/lightning/o/Lead/list');
   });
   await test.step("Click — Click on 'New' button", async () => {
     await leadNewPage.clickNew();
@@ -137,9 +136,9 @@ test('E2E: Attempt to create Lead with missing mandatory fields and verify error
   });
 });
 
-test('E2E: Verify Lead Status is set correctly after creation', { tag: ["@e2e","@regression","@lead","@P1","@e2e-lead-status-after-save"] }, async ({ page, homePage, leadNewPage }) => {
+test('E2E: Verify Lead Status is set correctly after creation', { tag: ["@e2e","@regression","@lead","@P1","@e2e-lead-status-after-save"] }, async ({ page, leadNewPage }) => {
   await test.step('Open — Navigate to Salesforce Leads tab', async () => {
-    await page.goto('/leads');
+    await page.goto('/lightning/o/Lead/list');
   });
   await test.step("Click — Click on 'New' button", async () => {
     await leadNewPage.clickNew();
