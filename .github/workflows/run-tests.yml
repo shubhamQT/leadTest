@@ -28,6 +28,14 @@ on:
       run_id:
         description: "AutomationAI run ID"
         required: true
+      auth_state:
+        description: "Base64-encoded Playwright storageState JSON (auth file)"
+        required: false
+        default: ""
+      auth_state_filename:
+        description: "Filename to write inside .auth/ (e.g. auth.json)"
+        required: false
+        default: ""
 
 permissions:
   contents: read
@@ -46,6 +54,12 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+
+      - name: Write auth state
+        if: ${{ inputs.auth_state != '' && inputs.auth_state_filename != '' }}
+        run: |
+          mkdir -p .auth
+          echo "${{ inputs.auth_state }}" | base64 -d > ".auth/${{ inputs.auth_state_filename }}"
 
       - run: npx playwright install --with-deps chromium
 
