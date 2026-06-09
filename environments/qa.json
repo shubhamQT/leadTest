@@ -1,5 +1,5 @@
 {
-  "baseURL": "https://login.salesforce.com/",
+  "baseURL": "https://orgfarm-cdb7bbd1fc-dev-ed.develop.lightning.force.com/lightning/page/home",
   "username": "shubham.bhele@qtsolv.com",
   "password": "Admin@1234",
   "browser": "chromium",
