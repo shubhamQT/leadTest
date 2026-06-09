@@ -1,0 +1,96 @@
+{
+  "id": "e2e-create-lead-full-journey",
+  "testPlanId": "01da3278-af3c-422b-8f8c-23247e61ed49",
+  "requirementId": "a40a9e54-fd3b-4305-be6d-2ea279c46457",
+  "suiteName": "Create Lead - Lead Management",
+  "case": {
+    "id": "e2e-create-lead-full-journey",
+    "title": "E2E: Create Lead from navigation to record verification",
+    "priority": "P0",
+    "platforms": [
+      "chrome"
+    ],
+    "preconditions": [],
+    "steps": [
+      {
+        "id": "step1",
+        "action": "openUrl",
+        "targetDescription": "Navigate to Salesforce Leads tab",
+        "locatorHint": "Leads tab URL",
+        "value": "https://login.salesforce.com/leads"
+      },
+      {
+        "id": "step2",
+        "action": "tap",
+        "targetDescription": "Click on 'New' button",
+        "locatorHint": "button[name='New']"
+      },
+      {
+        "id": "step3",
+        "action": "fill",
+        "targetDescription": "Enter First Name",
+        "locatorHint": "input[name='FirstName']",
+        "value": "John"
+      },
+      {
+        "id": "step4",
+        "action": "fill",
+        "targetDescription": "Enter Last Name",
+        "locatorHint": "input[name='LastName']",
+        "value": "Smith"
+      },
+      {
+        "id": "step5",
+        "action": "fill",
+        "targetDescription": "Enter Company",
+        "locatorHint": "input[name='Company']",
+        "value": "ABC Technologies"
+      },
+      {
+        "id": "step6",
+        "action": "fill",
+        "targetDescription": "Enter Phone",
+        "locatorHint": "input[name='Phone']",
+        "value": "9989876789"
+      },
+      {
+        "id": "step7",
+        "action": "fill",
+        "targetDescription": "Enter Email",
+        "locatorHint": "input[name='Email']",
+        "value": "john.smith@example.com"
+      },
+      {
+        "id": "step8",
+        "action": "selectOption",
+        "targetDescription": "Select Lead Source",
+        "locatorHint": "select[name='LeadSource']",
+        "value": "Web"
+      },
+      {
+        "id": "step9",
+        "action": "tap",
+        "targetDescription": "Click on 'Save' button",
+        "locatorHint": "button[name='Save']"
+      },
+      {
+        "id": "step10",
+        "action": "assertVisible",
+        "targetDescription": "Verify user is redirected to the new Lead record page",
+        "locatorHint": "h1[data-testid='lead-record-title']"
+      },
+      {
+        "id": "step11",
+        "action": "assertText",
+        "targetDescription": "Verify Lead Status is 'Open - Not Contacted'",
+        "locatorHint": "span[data-testid='lead-status']",
+        "assertion": "Open - Not Contacted"
+      }
+    ],
+    "tags": [
+      "@e2e",
+      "@regression",
+      "lead"
+    ]
+  }
+}

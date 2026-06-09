@@ -1,6 +1,4 @@
 {
-  "name": "qa",
-  "slug": "qa",
   "baseURL": "https://login.salesforce.com/",
   "username": "shubham.bhele@qtsolv.com",
   "password": "Admin@1234",

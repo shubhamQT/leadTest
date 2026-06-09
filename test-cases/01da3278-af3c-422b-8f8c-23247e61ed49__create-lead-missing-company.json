@@ -1,0 +1,54 @@
+{
+  "id": "create-lead-missing-company",
+  "testPlanId": "01da3278-af3c-422b-8f8c-23247e61ed49",
+  "requirementId": "a40a9e54-fd3b-4305-be6d-2ea279c46457",
+  "suiteName": "Create Lead - Lead Management",
+  "case": {
+    "id": "create-lead-missing-company",
+    "title": "Show validation error when Company is blank",
+    "priority": "P1",
+    "platforms": [
+      "chrome"
+    ],
+    "preconditions": [],
+    "steps": [
+      {
+        "id": "step1",
+        "action": "openUrl",
+        "targetDescription": "Navigate to Salesforce Leads tab",
+        "locatorHint": "Leads tab URL",
+        "value": "https://login.salesforce.com/leads"
+      },
+      {
+        "id": "step2",
+        "action": "tap",
+        "targetDescription": "Click on 'New' button",
+        "locatorHint": "button[name='New']"
+      },
+      {
+        "id": "step3",
+        "action": "fill",
+        "targetDescription": "Enter Last Name (mandatory)",
+        "locatorHint": "input[name='LastName']",
+        "value": "Smith"
+      },
+      {
+        "id": "step4",
+        "action": "tap",
+        "targetDescription": "Click on 'Save' button",
+        "locatorHint": "button[name='Save']"
+      },
+      {
+        "id": "step5",
+        "action": "assertVisible",
+        "targetDescription": "Verify validation error for Company",
+        "locatorHint": "div[data-testid='company-error']"
+      }
+    ],
+    "tags": [
+      "@functional",
+      "@regression",
+      "lead"
+    ]
+  }
+}

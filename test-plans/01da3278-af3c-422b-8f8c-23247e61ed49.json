@@ -1,0 +1,419 @@
+{
+  "id": "01da3278-af3c-422b-8f8c-23247e61ed49",
+  "requirementId": "a40a9e54-fd3b-4305-be6d-2ea279c46457",
+  "model": "gpt-4.1",
+  "createdAt": "2026-06-09T07:35:50.001Z",
+  "plan": {
+    "version": 1,
+    "suiteName": "Create Lead - Lead Management",
+    "cases": [
+      {
+        "id": "create-lead-missing-lastname",
+        "title": "Show validation error when Last Name is blank",
+        "priority": "P1",
+        "platforms": [
+          "chrome"
+        ],
+        "preconditions": [],
+        "steps": [
+          {
+            "id": "step1",
+            "action": "openUrl",
+            "targetDescription": "Navigate to Salesforce Leads tab",
+            "locatorHint": "Leads tab URL",
+            "value": "https://login.salesforce.com/leads"
+          },
+          {
+            "id": "step2",
+            "action": "tap",
+            "targetDescription": "Click on 'New' button",
+            "locatorHint": "button[name='New']"
+          },
+          {
+            "id": "step3",
+            "action": "fill",
+            "targetDescription": "Enter Company (mandatory)",
+            "locatorHint": "input[name='Company']",
+            "value": "ABC Technologies"
+          },
+          {
+            "id": "step4",
+            "action": "tap",
+            "targetDescription": "Click on 'Save' button",
+            "locatorHint": "button[name='Save']"
+          },
+          {
+            "id": "step5",
+            "action": "assertVisible",
+            "targetDescription": "Verify validation error for Last Name",
+            "locatorHint": "div[data-testid='lastname-error']"
+          }
+        ],
+        "tags": [
+          "@functional",
+          "@regression",
+          "lead"
+        ]
+      },
+      {
+        "id": "create-lead-missing-company",
+        "title": "Show validation error when Company is blank",
+        "priority": "P1",
+        "platforms": [
+          "chrome"
+        ],
+        "preconditions": [],
+        "steps": [
+          {
+            "id": "step1",
+            "action": "openUrl",
+            "targetDescription": "Navigate to Salesforce Leads tab",
+            "locatorHint": "Leads tab URL",
+            "value": "https://login.salesforce.com/leads"
+          },
+          {
+            "id": "step2",
+            "action": "tap",
+            "targetDescription": "Click on 'New' button",
+            "locatorHint": "button[name='New']"
+          },
+          {
+            "id": "step3",
+            "action": "fill",
+            "targetDescription": "Enter Last Name (mandatory)",
+            "locatorHint": "input[name='LastName']",
+            "value": "Smith"
+          },
+          {
+            "id": "step4",
+            "action": "tap",
+            "targetDescription": "Click on 'Save' button",
+            "locatorHint": "button[name='Save']"
+          },
+          {
+            "id": "step5",
+            "action": "assertVisible",
+            "targetDescription": "Verify validation error for Company",
+            "locatorHint": "div[data-testid='company-error']"
+          }
+        ],
+        "tags": [
+          "@functional",
+          "@regression",
+          "lead"
+        ]
+      },
+      {
+        "id": "create-lead-default-status",
+        "title": "Verify Lead Status defaults to 'Open - Not Contacted' after creation",
+        "priority": "P1",
+        "platforms": [
+          "chrome"
+        ],
+        "preconditions": [],
+        "steps": [
+          {
+            "id": "step1",
+            "action": "openUrl",
+            "targetDescription": "Navigate to Salesforce Leads tab",
+            "locatorHint": "Leads tab URL",
+            "value": "https://login.salesforce.com/leads"
+          },
+          {
+            "id": "step2",
+            "action": "tap",
+            "targetDescription": "Click on 'New' button",
+            "locatorHint": "button[name='New']"
+          },
+          {
+            "id": "step3",
+            "action": "fill",
+            "targetDescription": "Enter Last Name (mandatory)",
+            "locatorHint": "input[name='LastName']",
+            "value": "Smith"
+          },
+          {
+            "id": "step4",
+            "action": "fill",
+            "targetDescription": "Enter Company (mandatory)",
+            "locatorHint": "input[name='Company']",
+            "value": "ABC Technologies"
+          },
+          {
+            "id": "step5",
+            "action": "tap",
+            "targetDescription": "Click on 'Save' button",
+            "locatorHint": "button[name='Save']"
+          },
+          {
+            "id": "step6",
+            "action": "assertText",
+            "targetDescription": "Verify Lead Status is 'Open - Not Contacted'",
+            "locatorHint": "span[data-testid='lead-status']",
+            "assertion": "Open - Not Contacted"
+          }
+        ],
+        "tags": [
+          "@functional",
+          "@regression",
+          "lead"
+        ]
+      },
+      {
+        "id": "e2e-create-lead-full-journey",
+        "title": "E2E: Create Lead from navigation to record verification",
+        "priority": "P0",
+        "platforms": [
+          "chrome"
+        ],
+        "preconditions": [],
+        "steps": [
+          {
+            "id": "step1",
+            "action": "openUrl",
+            "targetDescription": "Navigate to Salesforce Leads tab",
+            "locatorHint": "Leads tab URL",
+            "value": "https://login.salesforce.com/leads"
+          },
+          {
+            "id": "step2",
+            "action": "tap",
+            "targetDescription": "Click on 'New' button",
+            "locatorHint": "button[name='New']"
+          },
+          {
+            "id": "step3",
+            "action": "fill",
+            "targetDescription": "Enter First Name",
+            "locatorHint": "input[name='FirstName']",
+            "value": "John"
+          },
+          {
+            "id": "step4",
+            "action": "fill",
+            "targetDescription": "Enter Last Name",
+            "locatorHint": "input[name='LastName']",
+            "value": "Smith"
+          },
+          {
+            "id": "step5",
+            "action": "fill",
+            "targetDescription": "Enter Company",
+            "locatorHint": "input[name='Company']",
+            "value": "ABC Technologies"
+          },
+          {
+            "id": "step6",
+            "action": "fill",
+            "targetDescription": "Enter Phone",
+            "locatorHint": "input[name='Phone']",
+            "value": "9989876789"
+          },
+          {
+            "id": "step7",
+            "action": "fill",
+            "targetDescription": "Enter Email",
+            "locatorHint": "input[name='Email']",
+            "value": "john.smith@example.com"
+          },
+          {
+            "id": "step8",
+            "action": "selectOption",
+            "targetDescription": "Select Lead Source",
+            "locatorHint": "select[name='LeadSource']",
+            "value": "Web"
+          },
+          {
+            "id": "step9",
+            "action": "tap",
+            "targetDescription": "Click on 'Save' button",
+            "locatorHint": "button[name='Save']"
+          },
+          {
+            "id": "step10",
+            "action": "assertVisible",
+            "targetDescription": "Verify user is redirected to the new Lead record page",
+            "locatorHint": "h1[data-testid='lead-record-title']"
+          },
+          {
+            "id": "step11",
+            "action": "assertText",
+            "targetDescription": "Verify Lead Status is 'Open - Not Contacted'",
+            "locatorHint": "span[data-testid='lead-status']",
+            "assertion": "Open - Not Contacted"
+          }
+        ],
+        "tags": [
+          "@e2e",
+          "@regression",
+          "lead"
+        ]
+      },
+      {
+        "id": "e2e-create-lead-minimal-fields",
+        "title": "E2E: Create Lead with only mandatory fields",
+        "priority": "P1",
+        "platforms": [
+          "chrome"
+        ],
+        "preconditions": [],
+        "steps": [
+          {
+            "id": "step1",
+            "action": "openUrl",
+            "targetDescription": "Navigate to Salesforce Leads tab",
+            "locatorHint": "Leads tab URL",
+            "value": "https://login.salesforce.com/leads"
+          },
+          {
+            "id": "step2",
+            "action": "tap",
+            "targetDescription": "Click on 'New' button",
+            "locatorHint": "button[name='New']"
+          },
+          {
+            "id": "step3",
+            "action": "fill",
+            "targetDescription": "Enter Last Name",
+            "locatorHint": "input[name='LastName']",
+            "value": "Smith"
+          },
+          {
+            "id": "step4",
+            "action": "fill",
+            "targetDescription": "Enter Company",
+            "locatorHint": "input[name='Company']",
+            "value": "ABC Technologies"
+          },
+          {
+            "id": "step5",
+            "action": "tap",
+            "targetDescription": "Click on 'Save' button",
+            "locatorHint": "button[name='Save']"
+          },
+          {
+            "id": "step6",
+            "action": "assertVisible",
+            "targetDescription": "Verify user is redirected to the new Lead record page",
+            "locatorHint": "h1[data-testid='lead-record-title']"
+          },
+          {
+            "id": "step7",
+            "action": "assertText",
+            "targetDescription": "Verify Lead Status is 'Open - Not Contacted'",
+            "locatorHint": "span[data-testid='lead-status']",
+            "assertion": "Open - Not Contacted"
+          }
+        ],
+        "tags": [
+          "@e2e",
+          "@regression",
+          "lead"
+        ]
+      },
+      {
+        "id": "e2e-lead-validation-errors",
+        "title": "E2E: Attempt to create Lead with missing mandatory fields and verify errors",
+        "priority": "P1",
+        "platforms": [
+          "chrome"
+        ],
+        "preconditions": [],
+        "steps": [
+          {
+            "id": "step1",
+            "action": "openUrl",
+            "targetDescription": "Navigate to Salesforce Leads tab",
+            "locatorHint": "Leads tab URL",
+            "value": "https://login.salesforce.com/leads"
+          },
+          {
+            "id": "step2",
+            "action": "tap",
+            "targetDescription": "Click on 'New' button",
+            "locatorHint": "button[name='New']"
+          },
+          {
+            "id": "step3",
+            "action": "tap",
+            "targetDescription": "Click on 'Save' button without entering any fields",
+            "locatorHint": "button[name='Save']"
+          },
+          {
+            "id": "step4",
+            "action": "assertVisible",
+            "targetDescription": "Verify validation error for Last Name",
+            "locatorHint": "div[data-testid='lastname-error']"
+          },
+          {
+            "id": "step5",
+            "action": "assertVisible",
+            "targetDescription": "Verify validation error for Company",
+            "locatorHint": "div[data-testid='company-error']"
+          }
+        ],
+        "tags": [
+          "@e2e",
+          "@regression",
+          "lead"
+        ]
+      },
+      {
+        "id": "e2e-lead-status-after-save",
+        "title": "E2E: Verify Lead Status is set correctly after creation",
+        "priority": "P1",
+        "platforms": [
+          "chrome"
+        ],
+        "preconditions": [],
+        "steps": [
+          {
+            "id": "step1",
+            "action": "openUrl",
+            "targetDescription": "Navigate to Salesforce Leads tab",
+            "locatorHint": "Leads tab URL",
+            "value": "https://login.salesforce.com/leads"
+          },
+          {
+            "id": "step2",
+            "action": "tap",
+            "targetDescription": "Click on 'New' button",
+            "locatorHint": "button[name='New']"
+          },
+          {
+            "id": "step3",
+            "action": "fill",
+            "targetDescription": "Enter Last Name",
+            "locatorHint": "input[name='LastName']",
+            "value": "Smith"
+          },
+          {
+            "id": "step4",
+            "action": "fill",
+            "targetDescription": "Enter Company",
+            "locatorHint": "input[name='Company']",
+            "value": "ABC Technologies"
+          },
+          {
+            "id": "step5",
+            "action": "tap",
+            "targetDescription": "Click on 'Save' button",
+            "locatorHint": "button[name='Save']"
+          },
+          {
+            "id": "step6",
+            "action": "assertText",
+            "targetDescription": "Verify Lead Status is 'Open - Not Contacted'",
+            "locatorHint": "span[data-testid='lead-status']",
+            "assertion": "Open - Not Contacted"
+          }
+        ],
+        "tags": [
+          "@e2e",
+          "@regression",
+          "lead"
+        ]
+      }
+    ]
+  }
+}
